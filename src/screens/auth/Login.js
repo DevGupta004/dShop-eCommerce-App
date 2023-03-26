@@ -28,7 +28,7 @@ const Login = props => {
             width="15%"
             height="100%"
           />
-            <Text style={styles.brandName}>DCart</Text>
+            <Text style={styles.brandName}>dShop</Text>
           </View>
 
           <Text style={styles.loginContinueTxt}>Login in to continue</Text>
