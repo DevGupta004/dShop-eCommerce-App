@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1036894126755",
+    "project_id": "dshop-119bd",
+    "storage_bucket": "dshop-119bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036894126755:android:449869ae21ce7e6fc03516",
+        "android_client_info": {
+          "package_name": "com.dev.dshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036894126755-29k4s7fsr9nrrmdl9bvv47p9q4ldejr5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dev.dshop",
+            "certificate_hash": "a3dd0bb37a3e33fc25631f0ac14d458f78dbdf05"
+          }
+        },
+        {
+          "client_id": "1036894126755-mphavihcp05rk8fcoi3nhrg6lovvcr4a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dev.dshop",
+            "certificate_hash": "bfdc9e6e32f019c854085ff27ea416b8d93bf8d9"
+          }
+        },
+        {
+          "client_id": "1036894126755-h3ejj92cj6sir5orj977q7eq0g1oesgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYK04-N9sYc4MhELS_WjRWR2b9DCudGms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036894126755-dk4a8p84n3orvh1j84g3od31lurvdjev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
