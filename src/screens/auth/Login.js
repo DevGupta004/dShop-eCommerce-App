@@ -62,6 +62,8 @@ const Login = props => {
             <Text style={styles.forgotPassText}>Forgot Password?</Text>
           </TouchableOpacity>
 
+          <Text style={styles.forgotPassText}>or Signin with Social Login</Text>
+
           <TouchableOpacity
             onPress={() =>
               navigation.navigate(ROUTES.FORGOT_PASSWORD, {
@@ -69,7 +71,6 @@ const Login = props => {
               })
             }
             style={styles.forgotPassBtn}>
-            <Text style={styles.forgotPassText}>or SignIN with Social Login</Text>
             <GoogleAuthComponent></GoogleAuthComponent>
             <FacebookAuthComponent></FacebookAuthComponent>
           </TouchableOpacity>
