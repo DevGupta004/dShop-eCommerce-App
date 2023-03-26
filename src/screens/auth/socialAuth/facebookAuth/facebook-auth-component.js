@@ -23,7 +23,6 @@ export default class FacebookAuthComponent extends React.Component {
       initializing: true,
       loginInProgress: true,
     };
-    this.USER = new SDKFactory().create('user');
   }
   componentDidMount = () => {
     firebase.auth().signOut();
@@ -52,7 +51,6 @@ export default class FacebookAuthComponent extends React.Component {
     const iconText = 'Sign In With Facebook';
     return (
       <SocialIcon
-        style={[styles.socialIcon, this.extraButtonStyle()]}
         title={'Sign In With Facebook'}
         iconStyle={{marginHorizontal: 13, marginLeft: 18.9}}
         button
@@ -64,7 +62,7 @@ export default class FacebookAuthComponent extends React.Component {
 
   extraButtonStyle = () => {
     const shapes = [3, 6, 9, 10];
-    const {buttonShape} = this.context.themeConfig;
+    const buttonShape = 1;
     const styles = {};
     if (shapes.includes(buttonShape)) {
       styles.borderRadius = 50;
@@ -78,7 +76,7 @@ export default class FacebookAuthComponent extends React.Component {
       const fbCreds = await this.facebookCreds();
       console.log('Fb SignIn\n', fbCreds);
 
-    //   const auth = getAuth();
+      const auth = getAuth();
     //   const response = await signInWithCredential(auth, fbCreds);
     //   const {email, uid} = response.user.providerData[0];
     //   const userData = await this.USER.verifySocialAuth('facebook', {
@@ -86,7 +84,7 @@ export default class FacebookAuthComponent extends React.Component {
     //     token: fbCreds.accessToken,
     //     userId: uid,
     //   });
-      this.loginUser(userData);
+      // this.loginUser(userData);
     } catch (error) {
       console.error('Fb SignIn Failed\n', error);
     }
