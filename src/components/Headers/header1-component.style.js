@@ -14,7 +14,7 @@ const nativeStyles = StyleSheet.create({
     width: 65,
     height: 55,
     borderRadius: 10,
-    // backgroundColor:'green',
+    backgroundColor:'white',
   },
   insideAppLogo: {
     width: 66.6,

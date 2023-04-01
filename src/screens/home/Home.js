@@ -18,12 +18,8 @@ const Home = () => {
       <ScrollView>
       <Header1></Header1>
       <Slider></Slider>
-      <Text>Home!</Text>
-      <Text>Home!</Text>
-      <Text>Home!</Text>
-      <Text>Home!</Text>
-      <Text>Home!</Text>
-      <Text>Home!</Text>
+      <Text>Trending Product</Text>
+      <Slider></Slider>
       </ScrollView>
     </CustomGradientWidget>
     
