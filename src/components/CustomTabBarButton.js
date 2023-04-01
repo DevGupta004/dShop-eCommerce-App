@@ -5,7 +5,6 @@ import Svg, {Path} from 'react-native-svg';
 
 const CustomTabBarButton = props => {
   const {route, children, accessibilityState, onPress} = props;
-  console.log("childrenchildren", children)
   if (accessibilityState.selected) {
     return (
       <View style={styles.btnWrapper}>
@@ -76,12 +75,10 @@ const styles = StyleSheet.create({
     borderRadius: 50 / 2,
     backgroundColor: 'red',
     alignItems: 'center',
-    // justifyContent: 'center',
   },
   inactiveBtn: {
     flex: 1,
     backgroundColor: COLORS.white,
-    // justifyContent: 'center',
     alignItems: 'center',
   },
   svgGapFiller: {

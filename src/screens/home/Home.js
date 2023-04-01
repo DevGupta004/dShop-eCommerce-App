@@ -1,18 +1,32 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../constants';
+import Header1 from '../../components/Headers/header1-component';
+import CustomGradientWidget from '../../components/UI/custom-gradient';
+import Slider from '../../components/Sliders/slider';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Home = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: COLORS.bgColor,
-      }}>
+    <CustomGradientWidget
+    style={{
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
+      <ScrollView>
+      <Header1></Header1>
+      <Slider></Slider>
       <Text>Home!</Text>
-    </View>
+      <Text>Home!</Text>
+      <Text>Home!</Text>
+      <Text>Home!</Text>
+      <Text>Home!</Text>
+      <Text>Home!</Text>
+      </ScrollView>
+    </CustomGradientWidget>
+    
   );
 };
 
