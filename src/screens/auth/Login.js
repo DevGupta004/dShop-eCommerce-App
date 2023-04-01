@@ -13,13 +13,14 @@ import {useNavigation} from '@react-navigation/native';
 import { SvgUri } from 'react-native-svg';
 import GoogleAuthComponent from './socialAuth/googleAuth/google-auth';
 import FacebookAuthComponent from './socialAuth/facebookAuth/facebook-auth-component';
+import CustomGradientWidget from '../../components/UI/custom-gradient';
 
 const Login = props => {
   // const {navigation} = props;
   const navigation = useNavigation();
-
+  
   return (
-    <SafeAreaView style={styles.main}>
+      <CustomGradientWidget style={styles.main}>
       <View style={styles.container}>
         <View style={styles.wFull}>
           <View style={styles.row}>
@@ -85,7 +86,7 @@ const Login = props => {
           </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>
+      </CustomGradientWidget>
   );
 };
 
