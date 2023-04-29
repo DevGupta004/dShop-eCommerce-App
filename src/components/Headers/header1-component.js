@@ -13,6 +13,8 @@ export default class Header1 extends React.Component {
   }
 
   async componentDidMount() {
+    console.log("component  navigation", this.props)
+
     const isUserAuthorized = true;
     this.setState({isUserAuthorized: true});
   }
@@ -54,24 +56,27 @@ export default class Header1 extends React.Component {
     let profileIcon = null;
     if (this.state.isUserAuthorized) {
       profileIcon = (
-        <TouchableOpacity
-          style={styles.mainRenderProfileIcon}
-          onPress={() => {
-            this.props.navigation.navigate(ROUTES.PROFILE);
-          }}>
-          <FontAwesomeIcon
-            name="search"
-            size={25}
-            color={iconColor}
-            style={[styles.profileIcon]}
-          />
-          <FontAwesomeIcon
-            name="user-o"
-            size={25}
-            color={iconColor}
-            style={[styles.profileIcon]}
-          />
-        </TouchableOpacity>
+        <View style={styles.mainRenderProfileIcon}>
+          <TouchableOpacity>
+            <FontAwesomeIcon
+              name="search"
+              size={25}
+              color={iconColor}
+              style={[styles.profileIcon]}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.navigate(ROUTES.PROFILE);
+            }}>
+            <FontAwesomeIcon
+              name="user-o"
+              size={25}
+              color={iconColor}
+              style={[styles.profileIcon]}
+            />
+          </TouchableOpacity>
+        </View>
       );
     }
     return profileIcon;

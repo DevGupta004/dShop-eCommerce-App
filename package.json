@@ -11,6 +11,7 @@
     "release-build-apk-release": "yarn react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew assembleRelease && ./gradlew signingReport && cd ..",
     "release-build-aab": "yarn react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/build/intermediates/res/merged/release/ && rm -rf android/app/src/main/res/drawable-* && rm -rf android/app/src/main/res/raw/* && cd android && ./gradlew bundleRelease && ./gradlew signingReport && cd ..",
     "release-build-test": "react-native run-android --variant=release",
+    "git-push": "git commit -am 'Release' && git push origin master",
     "test": "jest",
     "lint": "eslint ."
   },

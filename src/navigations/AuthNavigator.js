@@ -48,7 +48,6 @@ function AuthNavigator() {
           ),
         }}
       />
-
     </Stack.Navigator>
   );
 }
