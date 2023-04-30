@@ -6,6 +6,8 @@ import React from 'react';
 // import {EventRegister} from 'react-native-event-listeners';
 import ROUTES from '../../../../constants/routes';
 import {styles} from './google.auth.style';
+import DataContextProvider from '../../../../data-context/contextProvider';
+import NativeStorageUtility from '../../../../utilities/NativeStorageUtility';
 
 export default class GoogleAuthComponent extends React.Component {
   constructor(props) {
@@ -14,29 +16,39 @@ export default class GoogleAuthComponent extends React.Component {
       user: '',
       userDta: '',
       initializing: true,
+      currentUser: ''
     };
-    this.signOut();
   }
 
   componentDidMount = async () => {
-    const clientId = '1036894126755-h3ejj92cj6sir5orj977q7eq0g1oesgr.apps.googleusercontent.com';
     try {
       if (Platform.OS === 'ios') {
         await GoogleSignin.hasPlayServices();
       }
-      GoogleSignin.configure({webClientId: clientId});
-      auth().onAuthStateChanged(user => {
-        this.setState({user});
-        if (this.state.initializing) {
-          this.setState({initializing: false});
-        }
-      });
+      this.isSignedIn();
+      this.getCurrentUser();
     } catch (error) {
       console.error('error inside componentDidMount GoogleAuth\n', error);
     }
   };
 
-  render() {
+  isSignedIn = async () => {
+    const isSignedIn = await GoogleSignin.isSignedIn();
+    if(isSignedIn) {
+      this.props.navigation.navigate(ROUTES.HOME)
+      this.setState({isSignedIn})
+    }
+    this.setState({ isLoginScreenPresented: !isSignedIn });
+  };
+
+  getCurrentUser = async () => {
+    const currentUser = await GoogleSignin.getCurrentUser();
+    // console.log("getCurrentUsergetCurrentUser",JSON.stringify(currentUser,0,2))
+    this.setState({currentUser: currentUser.user})
+    this.saveAuthDetails()
+  };
+
+ render() {
     return <View>{this.renderSocialIcon()}</View>;
   }
 
@@ -87,7 +99,7 @@ export default class GoogleAuthComponent extends React.Component {
 
   conditionalNagivation() {
     try {
-    const { navigate } =this.props.navigation;
+    const { navigate } = this.props.navigation;
     const {home} = this.context.themeConfig?.screens
     if(home) {
       navigate(ROUTES.HOME, {
@@ -113,14 +125,17 @@ export default class GoogleAuthComponent extends React.Component {
     }
   };
 
-  saveAuthDetails = async user => {
+  saveAuthDetails = async () => {
     try {
-      await User.saveAuthDetails(user);
-      await this.context.getConfigData();
+      await NativeStorageUtility.setItem('user', this.state.currentUser);
+      const user = await NativeStorageUtility.getItem('user');
     } catch (error) {
       console.error(error);
     }
   };
 }
 
+
 export const loginEventEmitConfig = {LOGIN: 'LOGIN', LOGOUT: 'LOGOUT'};
+
+// GoogleAuthComponent.contextType = DataContextProvider;

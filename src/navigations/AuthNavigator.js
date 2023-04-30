@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Login, ForgotPassword, Register, Wallet, Notifications} from '../screens';
+import {Login, ForgotPassword, Register, Wallet, Notifications, Profile} from '../screens';
 import {COLORS, ROUTES} from '../constants';
 import Icon from 'react-native-vector-icons/Ionicons';
 import BottomTabNavigator from './BottomTabNavigator';
@@ -36,6 +36,7 @@ function AuthNavigator() {
         options={{headerShown: false}}
       />
       <Stack.Screen name={ROUTES.REGISTER} component={Register} />
+      <Stack.Screen name={ROUTES.PROFILE} component={Profile} />
 
 
       <Stack.Screen

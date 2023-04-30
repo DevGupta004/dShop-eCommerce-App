@@ -72,8 +72,8 @@ const Login = props => {
               })
             }
             style={styles.forgotPassBtn}>
-            <GoogleAuthComponent></GoogleAuthComponent>
-            <FacebookAuthComponent></FacebookAuthComponent>
+            <GoogleAuthComponent navigation={navigation}></GoogleAuthComponent>
+            <FacebookAuthComponent navigation={navigation}></FacebookAuthComponent>
           </TouchableOpacity>
         </View>
 
